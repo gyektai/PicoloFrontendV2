@@ -1,0 +1,29 @@
+@import url("https://use.typekit.net/pjg5mtx.css");
+
+
+.fill-window {
+    height: 100%;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+.bg-green {
+	background-color: #00ff00
+}
+.bg-blue {
+	background-color: #0000ff
+}
+.bg-orange {
+	background-color: #ff0000
+}
+.bg-pink {
+	background-color: #ff0066
+}
+.bg-purple {
+	background-color: #bf00ff
+}
+.bg-cyan {
+	background-color: #06f9f9
+}
