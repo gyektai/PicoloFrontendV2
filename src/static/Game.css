@@ -5,6 +5,11 @@ body, .stretch {
 	padding:0;
 }
 
+.card-container {
+	position: relative;
+	border: 5px solid white;
+}
+
 .card-label {
 	text-align: center;
 	padding-top: 150px;
@@ -15,6 +20,7 @@ body, .stretch {
 	font-style: normal;
 	font-size: 90px;
 	color: white;
+
 }
 
 .next-card-btn {

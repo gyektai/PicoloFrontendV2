@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import './static/Game.css';
+import { Transition, animated, Spring, config } from 'react-spring/renderprops';
 
 
-class Game extends React.Component {
+class Game extends Component {
   constructor(props) {
     super(props);
     this.deckTitle = this.props.match.params.title;
@@ -28,7 +29,7 @@ class Game extends React.Component {
         const myDeck = res.data;
         this.allCards = [];
         for(let i=0; i < myDeck.cards.length; i++){
-          axios.get(`https:\/\/gyektai.pythonanywhere.com/api/cards/${myDeck.cards[i]}`)
+          axios.get(`https://gyektai.pythonanywhere.com/api/cards/${myDeck.cards[i]}`)
             .then(r => {
               this.allCards.push(r.data.present);
             })
@@ -64,10 +65,23 @@ class Game extends React.Component {
   render() {
     const color = this.colors[this.state.bgColor]
     return (
+
       <div className={`stretch fill-window bg-${color}`}>
        {/* just for easy nav right now*/}
         <Link to='/' style={{color: "white"}}>Take me home tonight</Link> 
-        <div className="card-label">{this.state.card}</div>
+        <Spring
+          from={{ right: 100, width: '87.333%', fontSize: 50 }}
+          to={{ right: 0, width: '100%', fontSize: 60 }}
+          config={ config.wobbly }
+          key={this.state.card}
+        >
+          {props => (
+            <div className="card-container" style={props}>
+              <div className="card-label" style={props}>{this.state.card}</div>
+            </div>
+        )}
+        </Spring>
+
         <button className={`next-card-btn bg-${color}`} onClick={this.handleNextCard}>NEXT CARD</button>
       </div>
     );
