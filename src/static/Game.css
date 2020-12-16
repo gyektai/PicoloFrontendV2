@@ -7,7 +7,6 @@ body, .stretch {
 
 .card-container {
 	position: relative;
-	border: 5px solid white;
 }
 
 .card-label {
@@ -38,5 +37,7 @@ body, .stretch {
 	font-style: normal;
 	font-size: 80px;
 	color: white;
+
+	cursor: pointer;
 }
 

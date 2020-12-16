@@ -70,9 +70,9 @@ class Game extends Component {
        {/* just for easy nav right now*/}
         <Link to='/' style={{color: "white"}}>Take me home tonight</Link> 
         <Spring
-          from={{ right: 100, width: '87.333%', fontSize: 50 }}
-          to={{ right: 0, width: '100%', fontSize: 60 }}
-          config={ config.wobbly }
+          from={{ right: -1200, width: '87.333%', fontSize: 50 }}
+          to={{ right: 0, width: '100%', fontSize: 70 }}
+          config={ config.stiff }
           key={this.state.card}
         >
           {props => (
