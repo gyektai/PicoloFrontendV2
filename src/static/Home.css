@@ -5,7 +5,7 @@
 	font-family: pedestria-mvb, sans-serif;
 	font-weight: 700;
 	font-style: normal;
-	font-size: 120px;
+	font-size: 140px;
 	color: white;
 }
 
@@ -17,6 +17,10 @@
 .tc-bot {
 	text-align: center;
 	padding-top: 10px;
+}
+
+.tc-container {
+	position: relative;
 }
 
 .btn-play {
@@ -36,6 +40,10 @@
 	border: 0px;
 
 	width: 100%;
+}
+
+.btn-play:hover {
+	text-decoration: underline;
 }
 
 .btn-deck-select {
