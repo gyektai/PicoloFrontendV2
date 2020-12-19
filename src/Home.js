@@ -31,7 +31,7 @@ class Home extends Component {
 		    >
 		      {props => (
 				<div>
-				  <div className="tc-txt tc-top" style={props}>It&apos;s <span style={{ fontSize: props.fontSize*1.6}}>Picolo</span></div>
+				  <div className="tc-txt tc-top" style={props}>It&apos;s <span style={{ fontSize: props.fontSize*1.6}}>Picolo</span>,</div>
 				  <div className="tc-txt tc-bot" style={props}>Mofo!</div>
 				</div>
 		      )}

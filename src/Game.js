@@ -55,7 +55,7 @@ class Game extends Component {
         bgColor: newColorIndex
       }));
     }
-    else if (curCard.uses_names){
+    else {
       let cardParts = curCard.present.split('*name');
       console.log(cardParts);
       curCard.present = cardParts[0];
@@ -70,14 +70,6 @@ class Game extends Component {
         bgColor: newColorIndex,
       }));
       this.numCardsPlayed++;
-    } else {
-      this.setState(state => ({
-        cardNum: newCardIndex,
-        card: this.allCards[newCardIndex].present,
-        bgColor: newColorIndex,
-      }));
-      this.numCardsPlayed++;
-
     }
 
     this.allCards.splice(newCardIndex,1);
