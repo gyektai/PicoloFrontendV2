@@ -25,13 +25,13 @@ class Home extends Component {
 	    return (
 		  <div className="bg-pink fill-window">
 		    <Spring
-		      from={{ fontSize: 30 }}
+		      from={{ fontSize: 90 }}
 		      to={{ fontSize: 140 }}
-		      config={{ tension: 230, friction: 10}}
+		      config={{ tension: 200, friction: 5}}
 		    >
 		      {props => (
 				<div>
-				  <div className="tc-txt tc-top" style={props}>It&apos;s <span style={{ fontSize: props.fontSize*1.5}}>Picolo</span></div>
+				  <div className="tc-txt tc-top" style={props}>It&apos;s <span style={{ fontSize: props.fontSize*1.6}}>Picolo</span></div>
 				  <div className="tc-txt tc-bot" style={props}>Mofo!</div>
 				</div>
 		      )}

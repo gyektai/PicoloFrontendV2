@@ -12,12 +12,13 @@ class Selector extends Component {
     	this.allDecks = [];
 		this.state = {
 			deck: "",
-		}
+			players: ['Gideon', 'Spencer']
+		};
 
 	}
 
 	componentDidMount() {
-	    axios.get('https://gyektai.pythonanywhere.com/api/decks')
+	    axios.get('http://gyektai.pythonanywhere.com/api/decks/')
 	      .then(res => {
 	        let decks = res.data;
 	        for(let i = 0; i < decks.length; i++){
@@ -59,6 +60,7 @@ class Selector extends Component {
 					<button
 					onClick={() => this.handlePick(curDeck)}
 					className={`deck-option deck-selected bg-${this.bgColor}`}
+					key={curDeck}
 					>
 					&#9733; &nbsp; {curDeck} &nbsp; &#9733;
 					</button>
@@ -68,6 +70,7 @@ class Selector extends Component {
 				<button 
 				onClick={() => this.handlePick(curDeck)} 
 				className={`deck-option bg-${this.bgColor}`}
+				key={curDeck+`${i}`}
 				>
 				{curDeck}
 				</button>
@@ -78,7 +81,7 @@ class Selector extends Component {
 		return (
 			<div className={`fill-window bg-${this.bgColor}`}>				
 				{deckButtons}
-				<Link to={`/play/${this.state.deck}`} className="play-link">PLAY &rarr;</Link>
+				<Link to={`/play/${this.state.deck}/${this.state.players}`} className="play-link">PLAY &rarr;</Link>
 
 			</div>
 			)
