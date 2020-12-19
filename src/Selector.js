@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import './static/Selector.css';
+import AddPlayers from "./AddPlayers";
 
 class Selector extends Component {
 	constructor(props){
@@ -82,7 +83,7 @@ class Selector extends Component {
 			<div className={`fill-window bg-${this.bgColor}`}>				
 				{deckButtons}
 				<Link to={`/play/${this.state.deck}/${this.state.players}`} className="play-link">PLAY &rarr;</Link>
-
+				<AddPlayers />
 			</div>
 			)
 	}
