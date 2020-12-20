@@ -65,3 +65,26 @@
 	margin-right: 10px;
 
 }
+
+.name-container {
+	font-family: pedestria-mvb, sans-serif;
+	font-weight: 400;
+
+	margin: 36px auto;
+	margin-top: 0px;
+	width: 100%;
+	max-width: 1200px;
+}
+
+
+.name-added {
+	font-family: pedestria-mvb, sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 30px;
+	color: white;
+
+	text-align: left;
+	margin-left: 24px;
+
+}

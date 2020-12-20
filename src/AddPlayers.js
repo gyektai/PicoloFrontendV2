@@ -5,7 +5,6 @@ class AddPlayers extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			allPlayers: [],
 			name: ""
 		}
 	}
@@ -19,30 +18,24 @@ class AddPlayers extends Component {
 
 	keyPress = (event) => {
 		if (event.key === 'Enter') {
-			this.handleAddPlayer();
+			this.props.handleAddPlayer(this.state.name);
+			this.setState(state => ({
+				name: ""
+			}));
 		}
 	}
 
-	handleAddPlayer = () => {
-		const newPlayers = [this.state.name, ...this.state.allPlayers];
-		this.setState(state => ({
-			allPlayers: newPlayers,
-			name: "",
-		}));
-		console.log(this.state.allPlayers);
-	};
 
 	render() {
 		return (
-			<div>
+			<div className="name-container">
 				<input
 					type="text"
 					value={this.state.name}
-					id="search-input"
+					className="name-input"
 					placeholder="Add Player..."
 					onKeyDown={this.keyPress}
 					onChange={this.handleOnInputChange} />
-		
 			</div>
 			)
 	}

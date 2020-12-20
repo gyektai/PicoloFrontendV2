@@ -13,7 +13,7 @@ class Selector extends Component {
     	this.allDecks = [];
 		this.state = {
 			deck: "",
-			players: ['Gideon', 'Spencer']
+			allPlayers: []
 		};
 
 	}
@@ -41,6 +41,12 @@ class Selector extends Component {
 		}));
 	}
 
+	handleAddPlayer = (playerName) => {
+		this.setState(state => ({
+			allPlayers: [playerName, ...state.allPlayers]
+		}));
+	}
+
 	// used to clear the database completely. Probably pretty dangerous lol
 	cleanDB = () => {
 		let deck = 1;
@@ -52,9 +58,20 @@ class Selector extends Component {
 		}
 	}
 
+	renderPlayerNames = () => {
+		const names = this.state.allPlayers;
+		const nameTags = [];
+		for(let i = 0; i < names.length; i++){
+			nameTags.push(
+				<div className="name-added">{names[i]}</div>
+				)
+		};
+		return nameTags;
+	}
+
 	render() {
 		const deckButtons = [];
-		for(let i = 0; i < 10; i++){
+		for(let i = 0; i < 6; i++){
 			const curDeck = this.allDecks[i];
 			if(curDeck === this.state.deck){
 				deckButtons.push(
@@ -76,14 +93,18 @@ class Selector extends Component {
 				{curDeck}
 				</button>
 				);
+			}
 		}
-		}
+		const playerNames = [];
+
 
 		return (
 			<div className={`fill-window bg-${this.bgColor}`}>				
 				{deckButtons}
-				<Link to={`/play/${this.state.deck}/${this.state.players}`} className="play-link">PLAY &rarr;</Link>
-				<AddPlayers />
+				<AddPlayers handleAddPlayer={this.handleAddPlayer.bind(this)} />
+				<div className="name-container">{ this.renderPlayerNames() }</div>
+				<Link to={`/play/${this.state.deck}/${this.state.allPlayers}`} className="play-link">PLAY &rarr;</Link>
+
 			</div>
 			)
 	}
